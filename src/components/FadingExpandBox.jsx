@@ -102,7 +102,7 @@ function FadingExpandBox({
                         height: isExpanded ? '50px' : '120px', // Much smaller height for up arrows
                         background: isExpanded 
                             ? `linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.7) 100%)`  // Gentler gradient for up arrows
-                            : `linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 15%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.95) 75%, rgba(0, 0, 0, 1) 100%)`, // Full dramatic gradient for down arrows
+                            : `linear-gradient(to bottom, transparent 0%, rgba(20, 20, 21, 0.2) 15%, rgba(20, 20, 21, 0.4) 30%, rgba(20, 20, 21, 0.6) 45%, rgba(20, 20, 21, 0.8) 60%, rgba(20, 20, 21, 0.95) 70%, rgba(20, 20, 21, 1) 100%)`, // Full dramatic gradient for down arrows
                         cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'flex-end',
