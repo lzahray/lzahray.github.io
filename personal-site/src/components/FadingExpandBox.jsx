@@ -78,51 +78,6 @@ function FadingExpandBox({
                     </div>
                 </div>
             )}
-            
-            {/* Clickable ellipsis - positioned relative to main container, not preview */}
-            {!isExpanded && hasHiddenContent && (
-                <div 
-                    className="expand-ellipsis"
-                    onClick={(e) => {
-                        e.stopPropagation(); // Prevent bubbling to child components
-                        toggleExpanded();
-                    }}
-                    style={{
-                        position: 'absolute',
-                        bottom: '9px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        color: color.title,
-                        fontSize: '3em',
-                        fontWeight: 'bold',
-                        letterSpacing: '3px',
-                        textShadow: '0 0 8px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.9)',
-                        opacity: '0.7',
-                        transition: 'all 0.3s ease',
-                        zIndex: '10',
-                        cursor: 'pointer',
-                        padding: '0',
-                        borderRadius: '6px',
-                        lineHeight: '1',
-                        width: 'auto',
-                        height: 'auto'
-                    }}
-                    onMouseEnter={(e) => {
-                        e.target.style.fontSize = '5em';
-                        e.target.style.opacity = '1';
-                        //e.target.style.background = 'rgba(0, 0, 0, 0.3)';
-                        e.target.style.padding = '2px 8px';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.target.style.fontSize = '3em';
-                        e.target.style.opacity = '0.7';
-                        e.target.style.background = 'transparent';
-                        e.target.style.padding = '0';
-                    }}
-                >
-                    ...
-                </div>
-            )}
 
             {/* Hidden content when expanded */}
             {isExpanded && hasHiddenContent && (
@@ -131,44 +86,60 @@ function FadingExpandBox({
                 </div>
             )}
             
-            {/* Collapse triangle - appears when expanded */}
-            {isExpanded && hasHiddenContent && (
+            {/* Gradient overlay bar with arrows - creates fading effect */}
+            {hasHiddenContent && (
                 <div 
-                    className="collapse-triangle"
+                    className="gradient-bar"
                     onClick={(e) => {
                         e.stopPropagation(); // Prevent bubbling to child components
                         toggleExpanded();
                     }}
                     style={{
                         position: 'absolute',
-                        bottom: '0px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        color: color.title,
-                        fontSize: '4em',
-                        fontWeight: 'bold',
-                        letterSpacing: '3px',
-                        textShadow: '0 0 8px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.9)',
-                        opacity: '0.7',
+                        bottom: '0',
+                        left: '0',
+                        right: '0',
+                        height: isExpanded ? '50px' : '120px', // Much smaller height for up arrows
+                        background: isExpanded 
+                            ? `linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0.7) 100%)`  // Gentler gradient for up arrows
+                            : `linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 15%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.95) 75%, rgba(0, 0, 0, 1) 100%)`, // Full dramatic gradient for down arrows
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'flex-end',
+                        justifyContent: 'center',
+                        paddingBottom: isExpanded ? '12px' : '20px',
                         transition: 'all 0.3s ease',
                         zIndex: '10',
-                        cursor: 'pointer',
-                        padding: '0',
-                        borderRadius: '6px',
-                        lineHeight: '1',
-                        width: 'auto',
-                        height: 'auto'
+                        borderRadius: '0 0 10px 10px' // Match the container's border radius
                     }}
                     onMouseEnter={(e) => {
-                        e.target.style.fontSize = '5em';
-                        e.target.style.opacity = '1';
+                        // Keep the same dramatic gradient, just grow the arrows
+                        const arrows = e.target.querySelector('span');
+                        if (arrows) {
+                            arrows.style.fontSize = '1.3em'; // Same hover size for both
+                            arrows.style.transform = 'scale(1.1)';
+                        }
                     }}
                     onMouseLeave={(e) => {
-                        e.target.style.fontSize = '4em';
-                        e.target.style.opacity = '0.7';
+                        // Reset arrow size
+                        const arrows = e.target.querySelector('span');
+                        if (arrows) {
+                            arrows.style.fontSize = '1em'; // Same default size for both
+                            arrows.style.transform = 'scale(1)';
+                        }
                     }}
                 >
-                    -
+                    <span style={{
+                        color: color.title,
+                        fontSize: '1em', // Same size for both up and down arrows
+                        fontWeight: 'bold',
+                        textShadow: '0 0 12px rgba(0, 0, 0, 1), 0 0 6px rgba(0, 0, 0, 1)',
+                        letterSpacing: '8px',
+                        opacity: '1',
+                        transition: 'all 0.2s ease' // Smooth transition for hover effect
+                    }}>
+                        {isExpanded ? '▲▲▲' : '▼▼▼'}
+                    </span>
                 </div>
             )}
         </div>
