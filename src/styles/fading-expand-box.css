@@ -1,0 +1,71 @@
+/* FadingExpandBox - Reusable expandable container for Publications and Projects */
+.fading-expand-box {
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: var(--background-color);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible; /* Allow ellipsis to extend outside */
+}
+
+.fading-expand-box:hover {
+  border-color: var(--border-hover-color);
+  box-shadow: 0 4px 20px var(--background-hover-color);
+  transform: translateY(-2px);
+}
+
+.fading-expand-box.expanded {
+  border: 3px solid var(--expanded-border-color);
+  box-shadow: 0 0 15px var(--shadow-color);
+  transform: none;
+  padding-bottom: 60px; /* Add extra space at bottom when expanded for arrows */
+  /* Removed background-color to prevent interfering with individual project box colors */
+}
+
+.fading-expand-header {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.fading-expand-header h2 {
+  margin: 0;
+  color: var(--title-color);
+}
+
+.fading-expand-visible {
+  margin-bottom: 20px; /* Increase spacing to match natural item spacing */
+}
+
+.fading-expand-preview {
+  position: relative;
+  overflow: visible; /* Allow gradient bar to extend outside */
+  margin-top: 0; /* No extra top margin for preview */
+}
+
+.preview-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Allow more content to show since the gradient overlay will create the fade effect */
+  max-height: 120px; /* Increased to show more content for the gradient overlay to work on */
+}
+
+/* Remove top margin from first child in preview and expanded sections */
+.preview-wrapper > *:first-child,
+.fading-expand-expanded > *:first-child {
+  margin-top: 0 !important;
+}
+
+/* Remove bottom margin from last child in visible content, preview, and expanded sections */
+.fading-expand-visible > *:last-child,
+.preview-wrapper > *:last-child,
+.fading-expand-expanded > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.fading-expand-expanded {
+  animation: fadeIn 0.3s ease;
+  margin-top: 0; /* No extra top margin since visible content already has bottom margin */
+}
