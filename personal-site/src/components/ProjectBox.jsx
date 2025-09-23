@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TechTagsContainer from './TechTag';
 
-function ProjectBox({title, description, date, projectType, technologies = [], children}) {
+function ProjectBox({title, description, date, projectType, technologies = [], children, variant = 'default'}) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleExpanded = (event) => {
@@ -11,7 +11,7 @@ function ProjectBox({title, description, date, projectType, technologies = [], c
 
     return (
         <div 
-            className={`individual-project-box ${isExpanded ? 'expanded' : ''}`}
+            className={`individual-project-box ${variant} ${isExpanded ? 'expanded' : ''}`}
             onClick={toggleExpanded}
             style={{ cursor: 'pointer' }}
         >

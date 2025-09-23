@@ -79,6 +79,7 @@ function App() {
           </ProjectBox>,
           <ProjectBox 
             key="installation"
+            variant="alternate"
             title="Reverse Musical Chairs: Art Installation" 
             projectType="Personal Project" 
             date="2024" 
@@ -104,6 +105,7 @@ function App() {
           </ProjectBox>,
           <ProjectBox 
             key="shimon"
+            variant="alternate"
             title="Shimon - Robot Musical Gestures" 
             projectType="Research Project" 
             date="2019-2020" 
@@ -125,6 +127,7 @@ function App() {
           </ProjectBox>,
           <ProjectBox 
             key="vr"
+            variant="alternate"
             title="VR Music Composition Sandboxes" 
             projectType="Research Project" 
             date="2017" 

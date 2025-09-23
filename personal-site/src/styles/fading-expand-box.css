@@ -20,9 +20,9 @@
 .fading-expand-box.expanded {
   border: 3px solid var(--expanded-border-color);
   box-shadow: 0 0 15px var(--shadow-color);
-  background-color: var(--background-expanded-color);
   transform: none;
   padding-bottom: 60px; /* Add extra space at bottom when expanded for arrows */
+  /* Removed background-color to prevent interfering with individual project box colors */
 }
 
 .fading-expand-header {

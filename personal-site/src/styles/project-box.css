@@ -12,6 +12,11 @@
   position: relative; /* For absolute positioning of tags */
 }
 
+/* Alternating project box colors */
+.individual-project-box.alternate {
+  background-color: rgba(68, 74, 101, 0.5) !important; /* Bright red for testing - should be very obvious */
+}
+
 .individual-project-box:hover {
   border-color: #535bf2;
   box-shadow: 0 4px 20px rgba(100, 108, 255, 0.3);
@@ -22,9 +27,8 @@
   border: 3px solid #7e82c7;
   /* Glow transparency: change opacity to adjust glow intensity */
   box-shadow: 0 0 15px rgba(83, 91, 242, 0.4);
-  /* Expanded background: slightly more opaque than normal state */
-  background-color: rgba(255, 255, 255, 0.08);
   transform: none; /* Prevent conflicting with hover transform */
+  /* Background color will inherit from base class or .alternate class */
 }
 
 .project-header {
