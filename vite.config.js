@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', // For GitHub Pages on a username.github.io repo
+  base: './', // Use relative paths for GitHub Pages
   build: {
     rollupOptions: {
       output: {
