@@ -1,0 +1,71 @@
+/* FadingExpandBox - Reusable expandable container for Publications and Projects */
+.fading-expand-box {
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: var(--background-color);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.fading-expand-box:hover {
+  border-color: var(--border-hover-color);
+  box-shadow: 0 4px 20px var(--background-hover-color);
+  transform: translateY(-2px);
+}
+
+.fading-expand-box.expanded {
+  border: 3px solid var(--expanded-border-color);
+  box-shadow: 0 0 15px var(--shadow-color);
+  background-color: var(--background-expanded-color);
+  transform: none;
+}
+
+.fading-expand-header {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.fading-expand-header h2 {
+  margin: 0;
+  color: var(--title-color);
+}
+
+.fading-expand-visible {
+  margin-bottom: 15px;
+}
+
+.preview-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Control how much preview content shows - reduce this number to show less */
+  max-height: 80px; /* Adjust this to control preview height */
+  
+  /* Fade mask: controls how content fades out at bottom of preview */
+  mask: linear-gradient(
+    to bottom,
+    black 0%, /* Fully visible at top */
+    black 40%, /* Stay fully visible until this point */
+    rgba(0, 0, 0, 0.2) 70%, /* Start fading - adjust opacity for fade intensity */
+    transparent 100% /* Fully transparent at bottom */
+  );
+  -webkit-mask: linear-gradient(
+    to bottom,
+    black 0%, /* Fully visible at top */
+    black 40%, /* Stay fully visible until this point */
+    rgba(0, 0, 0, 0.2) 70%, /* Start fading - adjust opacity for fade intensity */
+    transparent 100% /* Fully transparent at bottom */
+  );
+}
+
+/* Remove top margin from first child in preview and expanded sections */
+.preview-wrapper > *:first-child,
+.fading-expand-expanded > *:first-child {
+  margin-top: 0 !important;
+}
+
+.fading-expand-expanded {
+  animation: fadeIn 0.3s ease;
+}

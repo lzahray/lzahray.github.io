@@ -10,7 +10,7 @@ function ProjectBox({title, description, date, projectType, technologies = [], c
 
     return (
         <div 
-            className={`project-box ${isExpanded ? 'expanded' : ''}`}
+            className={`individual-project-box ${isExpanded ? 'expanded' : ''}`}
             onClick={toggleExpanded}
             style={{ cursor: 'pointer' }}
         >

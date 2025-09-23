@@ -1,0 +1,6 @@
+/* Main styles entry point - imports all component styles */
+@import './global.css';
+@import './tech-tags.css';
+@import './project-box.css';
+@import './publications.css';
+@import './fading-expand-box.css';

@@ -1,0 +1,24 @@
+/* Technology Tags Component */
+.tech-tags-container {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 250px; /* Increased from 200px */
+  justify-content: flex-end;
+  align-content: flex-start; /* Control how wrapped lines align */
+  z-index: 2;
+}
+
+.tech-tag {
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}

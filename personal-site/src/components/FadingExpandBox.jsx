@@ -1,0 +1,92 @@
+import { useState } from 'react';
+
+function FadingExpandBox({ 
+    title, 
+    visibleChildren, 
+    hiddenChildren = [], 
+    colorScheme = 'blue' // 'blue' for projects, 'green' for publications
+}) {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleExpanded = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    const hasHiddenContent = hiddenChildren.length > 0;
+
+    // Color schemes
+    const colors = {
+        blue: {
+            border: '#7e82c7',
+            borderHover: '#535bf2',
+            background: 'rgba(126, 130, 199, 0.05)',
+            backgroundHover: 'rgba(83, 91, 242, 0.3)',
+            backgroundExpanded: 'rgba(83, 91, 242, 0.08)',
+            title: '#7e82c7',
+            expandedBorder: '#535bf2',
+            shadow: 'rgba(83, 91, 242, 0.4)'
+        },
+        green: {
+            border: '#4caf50',
+            borderHover: '#66bb6a',
+            background: 'rgba(76, 175, 80, 0.05)',
+            backgroundHover: 'rgba(76, 175, 80, 0.3)',
+            backgroundExpanded: 'rgba(76, 175, 80, 0.08)',
+            title: '#4caf50',
+            expandedBorder: '#66bb6a',
+            shadow: 'rgba(76, 175, 80, 0.4)'
+        }
+    };
+
+    const color = colors[colorScheme];
+
+    return (
+        <div 
+            className={`fading-expand-box ${isExpanded ? 'expanded' : ''}`}
+            onClick={hasHiddenContent ? toggleExpanded : undefined}
+            style={{ 
+                cursor: hasHiddenContent ? 'pointer' : 'default',
+                '--border-color': color.border,
+                '--border-hover-color': color.borderHover,
+                '--background-color': color.background,
+                '--background-hover-color': color.backgroundHover,
+                '--background-expanded-color': color.backgroundExpanded,
+                '--title-color': color.title,
+                '--expanded-border-color': color.expandedBorder,
+                '--shadow-color': color.shadow
+            }}
+        >
+            <div className="fading-expand-header">
+                <h2>
+                    {hasHiddenContent 
+                        ? (isExpanded ? `▼ ${title}` : `▶ ${title}`)
+                        : title
+                    }
+                </h2>
+            </div>
+
+            {/* Always visible content */}
+            <div className="fading-expand-visible">
+                {visibleChildren}
+            </div>
+
+            {/* Preview of hidden content when collapsed */}
+            {!isExpanded && hasHiddenContent && (
+                <div className="fading-expand-preview">
+                    <div className="preview-wrapper">
+                        {hiddenChildren.slice(0, 1)} {/* Show first hidden item as preview */}
+                    </div>
+                </div>
+            )}
+
+            {/* Hidden content when expanded */}
+            {isExpanded && hasHiddenContent && (
+                <div className="fading-expand-expanded">
+                    {hiddenChildren}
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default FadingExpandBox;

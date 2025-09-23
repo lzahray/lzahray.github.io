@@ -11,7 +11,7 @@ const getTechColor = (tech) => {
         'Git': '#f05032',
         'Linux': '#fcc624',
         'NumPy': '#013243',
-        'ZeroMQ': '#df0000',
+        'ZeroMQ': '#b50d0dff',
         'Raspberry Pi': '#c94520ff',
         'CSS': '#1572b6',
         'VR': '#9c27b0',

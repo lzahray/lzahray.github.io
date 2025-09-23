@@ -1,0 +1,75 @@
+/* Individual Project Box Component */
+.individual-project-box {
+  border: 2px solid #7e82c7;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  /* Background transparency: rgba(R, G, B, ALPHA) - change the last number to adjust transparency */
+  /* 0.0 = fully transparent, 1.0 = fully opaque. Try 0.1 for more visible, 0.02 for more transparent */
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative; /* For absolute positioning of tags */
+}
+
+.individual-project-box:hover {
+  border-color: #535bf2;
+  box-shadow: 0 4px 20px rgba(100, 108, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.individual-project-box.expanded {
+  border: 3px solid #7e82c7;
+  /* Glow transparency: change opacity to adjust glow intensity */
+  box-shadow: 0 0 15px rgba(83, 91, 242, 0.4);
+  /* Expanded background: slightly more opaque than normal state */
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: none; /* Prevent conflicting with hover transform */
+}
+
+.project-header {
+  position: relative;
+  text-align: center;
+  padding-left: 30px; /* Add space for the triangle */
+  padding-right: 30px; /* Small space for tags, but not excessive */
+  max-width: calc(100% - 60px); /* Account for both sides */
+}
+
+.project-meta {
+  color: #888;
+  font-size: 0.9em;
+  margin: 0 0 10px 0; /* Remove top margin, keep bottom margin */
+}
+
+.expand-indicator {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #7e82c7;
+  transition: transform 0.2s ease;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.expanded-content {
+  margin-top: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.individual-project-box h2 {
+  margin-top: 0;
+  margin-bottom: 5px; /* Reduce bottom margin */
+  color: #7e82c7;
+  word-wrap: break-word; /* Allow long words to break */
+  hyphens: auto; /* Add hyphens for better breaking */
+  line-height: 1.2; /* Tighter line height for multi-line titles */
+  max-width: calc(100% - 220px); /* Limit width to prevent overlap */
+  margin-left: auto;
+  margin-right: auto; /* Center the title within its constrained width */
+}

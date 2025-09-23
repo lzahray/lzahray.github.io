@@ -1,0 +1,57 @@
+/* Publications Grid Layout (used by PublicationsBox component) */
+.publications-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+/* Individual Publication Item */
+.individual-publication-item {
+  padding: 15px;
+  /* Publication background transparency: adjust opacity to make more/less visible */
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border-left: 3px solid #4caf50;
+}
+
+.individual-publication-title {
+  margin: 0 0 8px 0;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.individual-publication-venue {
+  margin: 0 0 8px 0;
+  color: #aaa;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.individual-publication-description {
+  margin: 0 0 10px 0;
+  color: #ccc;
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+
+.individual-publication-links a {
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.individual-publication-links a:hover {
+  color: #66bb6a;
+  text-decoration: underline;
+}
+
+/* Responsive design for publications */
+@media (max-width: 768px) {
+  .publications-grid {
+    grid-template-columns: 1fr;
+  }
+}
