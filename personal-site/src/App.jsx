@@ -86,7 +86,10 @@ function App() {
             description="Interactive art installation enabling collaborative music-making. The users sit on different chairs to trigger beat-synchronized LEDs and music tracks"
           >
             <p>Additional details about the Reverse Musical Chairs project.</p>
-          </ProjectBox>,
+          </ProjectBox>
+          
+        ]}
+        hiddenProjects={[
           <ProjectBox 
             key="pilot"
             title="Pilot Cognitive Inference" 
@@ -98,9 +101,7 @@ function App() {
             <p>Additional details about the Pilot Cognitive Inference project.<br></br>
               <a href="https://www.aurora.aero/2022/06/15/bridging-the-gap-between-humans-and-autonomy/" target="_blank" rel="noopener noreferrer">Article</a>
             </p>
-          </ProjectBox>
-        ]}
-        hiddenProjects={[
+          </ProjectBox>,
           <ProjectBox 
             key="shimon"
             title="Shimon - Robot Musical Gestures" 

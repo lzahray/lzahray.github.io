@@ -43,9 +43,8 @@ function FadingExpandBox({
     return (
         <div 
             className={`fading-expand-box ${isExpanded ? 'expanded' : ''}`}
-            onClick={hasHiddenContent ? toggleExpanded : undefined}
             style={{ 
-                cursor: hasHiddenContent ? 'pointer' : 'default',
+                cursor: 'pointer',
                 '--border-color': color.border,
                 '--border-hover-color': color.borderHover,
                 '--background-color': color.background,
@@ -55,6 +54,7 @@ function FadingExpandBox({
                 '--expanded-border-color': color.expandedBorder,
                 '--shadow-color': color.shadow
             }}
+            onClick={toggleExpanded}
         >
             <div className="fading-expand-header">
                 <h2>
@@ -78,11 +78,97 @@ function FadingExpandBox({
                     </div>
                 </div>
             )}
+            
+            {/* Clickable ellipsis - positioned relative to main container, not preview */}
+            {!isExpanded && hasHiddenContent && (
+                <div 
+                    className="expand-ellipsis"
+                    onClick={(e) => {
+                        e.stopPropagation(); // Prevent bubbling to child components
+                        toggleExpanded();
+                    }}
+                    style={{
+                        position: 'absolute',
+                        bottom: '9px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        color: color.title,
+                        fontSize: '3em',
+                        fontWeight: 'bold',
+                        letterSpacing: '3px',
+                        textShadow: '0 0 8px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.9)',
+                        opacity: '0.7',
+                        transition: 'all 0.3s ease',
+                        zIndex: '10',
+                        cursor: 'pointer',
+                        padding: '0',
+                        borderRadius: '6px',
+                        lineHeight: '1',
+                        width: 'auto',
+                        height: 'auto'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.target.style.fontSize = '5em';
+                        e.target.style.opacity = '1';
+                        //e.target.style.background = 'rgba(0, 0, 0, 0.3)';
+                        e.target.style.padding = '2px 8px';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.fontSize = '3em';
+                        e.target.style.opacity = '0.7';
+                        e.target.style.background = 'transparent';
+                        e.target.style.padding = '0';
+                    }}
+                >
+                    ...
+                </div>
+            )}
 
             {/* Hidden content when expanded */}
             {isExpanded && hasHiddenContent && (
                 <div className="fading-expand-expanded">
                     {hiddenChildren}
+                </div>
+            )}
+            
+            {/* Collapse triangle - appears when expanded */}
+            {isExpanded && hasHiddenContent && (
+                <div 
+                    className="collapse-triangle"
+                    onClick={(e) => {
+                        e.stopPropagation(); // Prevent bubbling to child components
+                        toggleExpanded();
+                    }}
+                    style={{
+                        position: 'absolute',
+                        bottom: '0px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        color: color.title,
+                        fontSize: '4em',
+                        fontWeight: 'bold',
+                        letterSpacing: '3px',
+                        textShadow: '0 0 8px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.9)',
+                        opacity: '0.7',
+                        transition: 'all 0.3s ease',
+                        zIndex: '10',
+                        cursor: 'pointer',
+                        padding: '0',
+                        borderRadius: '6px',
+                        lineHeight: '1',
+                        width: 'auto',
+                        height: 'auto'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.target.style.fontSize = '5em';
+                        e.target.style.opacity = '1';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.target.style.fontSize = '4em';
+                        e.target.style.opacity = '0.7';
+                    }}
+                >
+                    -
                 </div>
             )}
         </div>

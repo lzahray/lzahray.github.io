@@ -4,7 +4,8 @@ import TechTagsContainer from './TechTag';
 function ProjectBox({title, description, date, projectType, technologies = [], children}) {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const toggleExpanded = () => {
+    const toggleExpanded = (event) => {
+        event.stopPropagation(); // Prevent event from bubbling up to bounding box
         setIsExpanded(!isExpanded);
     };
 

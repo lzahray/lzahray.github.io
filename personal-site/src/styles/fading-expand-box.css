@@ -8,6 +8,7 @@
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   position: relative;
+  overflow: visible; /* Allow ellipsis to extend outside */
 }
 
 .fading-expand-box:hover {
@@ -35,6 +36,11 @@
 
 .fading-expand-visible {
   margin-bottom: 15px;
+}
+
+.fading-expand-preview {
+  position: relative;
+  overflow: visible; /* Allow ellipsis to extend outside */
 }
 
 .preview-wrapper {
