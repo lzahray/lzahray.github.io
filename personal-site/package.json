@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "cp index.html index-src.html && npm run build && cp dist/index.html . && cp -r dist/assets . && cp dist/.nojekyll . 2>/dev/null || true && git add index.html assets .nojekyll && git commit -m 'Deploy to GitHub Pages' && git push && mv index-src.html index.html"
+    "deploy": "npm run build && cd .. && git add . && git commit -m 'Deploy to GitHub Pages' && git push"
   },
   "dependencies": {
     "react": "^19.1.1",

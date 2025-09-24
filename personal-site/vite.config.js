@@ -5,16 +5,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/', 
-  root: '.', 
-  publicDir: 'public',
   server: {
     port: 5173,
     open: true
   },
   build: {
-    outDir: 'dist', // Keep using dist for builds
+    outDir: '../', // Build to the root directory for GitHub Pages
+    emptyOutDir: false, // Don't empty the root (it has .git, README, etc.)
     rollupOptions: {
-      input: './index.html', // Explicitly tell Vite to use the source index.html, not the built one
       output: {
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',

@@ -2,7 +2,7 @@ function PublicationItem({ title, venue, year, link, videoLink, description }) {
     return (
         <div className="individual-publication-item">
             <h4 className="individual-publication-title">{title}</h4>
-            <p className="individual-publication-venue">{venue}, {year}</p>
+            <p className="individual-publication-venue">{venue}{year && ', ' + year}</p>
             {description && <p className="individual-publication-description">{description}</p>}
             <div className="individual-publication-links">
                 {link && (

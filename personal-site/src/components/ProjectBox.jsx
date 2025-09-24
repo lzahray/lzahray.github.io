@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import TechTagsContainer from './TechTag';
+import LinkBox from './LinkBox';
 
-function ProjectBox({title, description, date, projectType, technologies = [], children, variant = 'default'}) {
+function ProjectBox({title, description, date, projectType, linkBoxes = [], children, technologies = [], variant = 'default'}) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleExpanded = (event) => {
@@ -26,14 +27,19 @@ function ProjectBox({title, description, date, projectType, technologies = [], c
                     <h2>{title}</h2>
                     <p className="project-meta">{projectType}, {date}</p>
                     <p style={{ maxWidth: '80%', margin: '0 auto' }}>{description}</p>
-                </div>
-            </div>
-            
-            {isExpanded && (
+                    {isExpanded && (
                 <div className="expanded-content">
                     {children}
                 </div>
             )}
+                    {/* Horizontally put link boxes in list next to each other */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center', marginTop: '12px', marginBottom: "0 auto" }}>
+                        {linkBoxes}
+                    </div>
+                </div>
+            </div>
+            
+            
         </div>
     );
 }
