@@ -10,8 +10,8 @@ export default defineConfig({
     open: true
   },
   build: {
-    outDir: '../', // Build to the root directory for GitHub Pages
-    emptyOutDir: false, // Don't empty the root (it has .git, README, etc.)
+    outDir: 'dist', // Build to dist folder first
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         entryFileNames: 'assets/[name]-[hash].js',
