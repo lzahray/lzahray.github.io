@@ -111,13 +111,15 @@
     font-size: 0.65em; /* Slightly smaller on mobile */
   }
   
-  /* Ensure consistent alternating colors on mobile */
-  .individual-project-box {
-    background-color: rgba(255, 255, 255, 0.08) !important; /* Slightly more opaque on mobile */
+  /* Ensure consistent alternating colors on mobile - using higher specificity */
+  .individual-project-box.individual-project-box {
+    background-color: rgba(255, 255, 255, 0.12) !important; /* Much more opaque on mobile */
     backdrop-filter: blur(8px); /* Reduce blur for better performance on mobile */
+    border: 3px solid #7e82c7 !important; /* Thicker border to make more visible */
   }
   
-  .individual-project-box.alternate {
-    background-color: rgba(126, 130, 199, 0.2) !important; /* Even more distinct blue on mobile */
+  .individual-project-box.alternate.individual-project-box.alternate {
+    background-color: rgba(126, 130, 199, 0.3) !important; /* Very distinct blue on mobile */
+    border: 3px solid #535bf2 !important; /* Different border color for alternates */
   }
 }
