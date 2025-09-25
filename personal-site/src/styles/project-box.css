@@ -91,4 +91,23 @@
     padding-right: 20px;
     max-width: calc(100% - 40px);
   }
+  
+  /* Fix project metadata readability on mobile */
+  .project-meta {
+    color: #ffffff; /* Make text white instead of gray for better contrast */
+    font-weight: 600; /* Make it bolder */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); /* Add shadow for better readability */
+  }
+  
+  /* Move tech tags below title on mobile to prevent overlap */
+  .tech-tags-container {
+    position: static; /* Remove absolute positioning */
+    justify-content: center; /* Center the tags */
+    margin: 8px 0; /* Add margin above and below */
+    max-width: 100%; /* Use full width */
+  }
+  
+  .tech-tag {
+    font-size: 0.65em; /* Slightly smaller on mobile */
+  }
 }
