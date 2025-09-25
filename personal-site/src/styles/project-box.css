@@ -78,3 +78,17 @@
   margin-left: auto;
   margin-right: auto; /* Center the title within its constrained width */
 }
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  .individual-project-box h2 {
+    max-width: calc(100% - 80px); /* Much more space on mobile */
+    font-size: 1.1em; /* Slightly smaller font on mobile if needed */
+  }
+  
+  .project-header {
+    padding-left: 20px; /* Reduce padding on mobile */
+    padding-right: 20px;
+    max-width: calc(100% - 40px);
+  }
+}
