@@ -79,18 +79,11 @@
   margin-right: auto; /* Center the title within its constrained width */
 }
 
-/* Mobile responsive fixes - broader breakpoint */
-@media (max-width: 1024px) {
-  /* TEST: This should make all project boxes bright red on mobile */
-  .individual-project-box {
-    background-color: red !important;
-    border: 5px solid yellow !important;
-  }
-  
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
   .individual-project-box h2 {
     max-width: calc(100% - 40px); /* Even more space on mobile */
     font-size: 1.1em; /* Slightly smaller font on mobile if needed */
-    color: white !important; /* Make sure text is visible on red background */
   }
   
   .project-header {
@@ -118,15 +111,27 @@
     font-size: 0.65em; /* Slightly smaller on mobile */
   }
   
-  /* Ensure consistent alternating colors on mobile - using higher specificity */
-  .individual-project-box.individual-project-box {
-    background-color: rgba(255, 255, 255, 0.12) !important; /* Much more opaque on mobile */
-    backdrop-filter: blur(8px); /* Reduce blur for better performance on mobile */
-    border: 3px solid #7e82c7 !important; /* Thicker border to make more visible */
+  /* Fix project metadata readability on mobile */
+  .project-meta {
+    color: #ffffff; /* Make text white instead of gray for better contrast */
+    font-weight: 600; /* Make it bolder */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); /* Add shadow for better readability */
   }
   
-  .individual-project-box.alternate.individual-project-box.alternate {
-    background-color: rgba(126, 130, 199, 0.3) !important; /* Very distinct blue on mobile */
-    border: 3px solid #535bf2 !important; /* Different border color for alternates */
+  /* Move tech tags below title on mobile to prevent overlap */
+  .tech-tags-container {
+    position: static; /* Remove absolute positioning */
+    justify-content: center; /* Center the tags */
+    margin: 8px 0; /* Add margin above and below */
+    max-width: 100%; /* Use full width */
+  }
+  
+  /* Enhanced alternating colors for mobile */
+  .individual-project-box {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* More visible on mobile */
+  }
+  
+  .individual-project-box.alternate {
+    background-color: rgba(126, 130, 199, 0.2) !important; /* More distinct blue on mobile */
   }
 }
