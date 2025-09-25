@@ -79,11 +79,18 @@
   margin-right: auto; /* Center the title within its constrained width */
 }
 
-/* Mobile responsive fixes */
-@media (max-width: 768px) {
+/* Mobile responsive fixes - broader breakpoint */
+@media (max-width: 1024px) {
+  /* TEST: This should make all project boxes bright red on mobile */
+  .individual-project-box {
+    background-color: red !important;
+    border: 5px solid yellow !important;
+  }
+  
   .individual-project-box h2 {
     max-width: calc(100% - 40px); /* Even more space on mobile */
     font-size: 1.1em; /* Slightly smaller font on mobile if needed */
+    color: white !important; /* Make sure text is visible on red background */
   }
   
   .project-header {
