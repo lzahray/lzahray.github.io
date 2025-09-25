@@ -82,14 +82,24 @@
 /* Mobile responsive fixes */
 @media (max-width: 768px) {
   .individual-project-box h2 {
-    max-width: calc(100% - 40px); /* Even more space on mobile */
+    max-width: calc(100% - 20px); /* Use almost full width on mobile */
     font-size: 1.1em; /* Slightly smaller font on mobile if needed */
+    margin: 0 10px; /* Small margins instead of big padding */
   }
   
   .project-header {
-    padding-left: 20px; /* Reduce padding on mobile */
-    padding-right: 20px;
-    max-width: calc(100% - 40px);
+    padding-left: 10px; /* Minimal padding on mobile */
+    padding-right: 10px;
+    max-width: calc(100% - 20px); /* Use almost full width */
+  }
+  
+  /* Make all project content use full width on mobile */
+  .individual-project-box p,
+  .individual-project-box .project-meta,
+  .individual-project-box .link-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: calc(100% - 20px);
   }
   
   /* Fix project metadata readability on mobile */
@@ -126,12 +136,14 @@
     max-width: 100%; /* Use full width */
   }
   
-  /* Enhanced alternating colors for mobile */
-  .individual-project-box {
-    background-color: rgba(255, 255, 255, 0.1) !important; /* More visible on mobile */
+  /* Enhanced alternating colors for mobile - very aggressive */
+  .individual-project-box.individual-project-box.individual-project-box {
+    background-color: rgba(255, 255, 255, 0.15) !important; /* Much more visible white */
+    border: 2px solid rgba(255, 255, 255, 0.3) !important; /* White border */
   }
   
-  .individual-project-box.alternate {
-    background-color: rgba(126, 130, 199, 0.2) !important; /* More distinct blue on mobile */
+  .individual-project-box.alternate.individual-project-box.alternate.individual-project-box.alternate {
+    background-color: rgba(126, 130, 199, 0.4) !important; /* Very strong blue tint */
+    border: 2px solid rgba(126, 130, 199, 0.6) !important; /* Blue border */
   }
 }
