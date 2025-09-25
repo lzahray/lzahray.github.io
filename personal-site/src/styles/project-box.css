@@ -6,7 +6,7 @@
   margin: 20px 0;
   /* Background transparency: rgba(R, G, B, ALPHA) - change the last number to adjust transparency */
   /* 0.0 = fully transparent, 1.0 = fully opaque. Try 0.1 for more visible, 0.02 for more transparent */
-  background-color: rgba(68, 74, 101, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   position: relative; /* For absolute positioning of tags */
@@ -14,7 +14,7 @@
 
 /* Alternating project box colors */
 .individual-project-box.alternate {
-  background-color: rgba(255, 255, 255, 0.05); 
+  background-color: rgba(126, 130, 199, 0.15); /* Much more visible blue tint */
 }
 
 .individual-project-box:hover {
@@ -82,7 +82,7 @@
 /* Mobile responsive fixes */
 @media (max-width: 768px) {
   .individual-project-box h2 {
-    max-width: calc(100% - 80px); /* Much more space on mobile */
+    max-width: calc(100% - 40px); /* Even more space on mobile */
     font-size: 1.1em; /* Slightly smaller font on mobile if needed */
   }
   
@@ -109,5 +109,15 @@
   
   .tech-tag {
     font-size: 0.65em; /* Slightly smaller on mobile */
+  }
+  
+  /* Ensure consistent alternating colors on mobile */
+  .individual-project-box {
+    background-color: rgba(255, 255, 255, 0.08) !important; /* Slightly more opaque on mobile */
+    backdrop-filter: blur(8px); /* Reduce blur for better performance on mobile */
+  }
+  
+  .individual-project-box.alternate {
+    background-color: rgba(126, 130, 199, 0.2) !important; /* Even more distinct blue on mobile */
   }
 }
